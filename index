@@ -1,0 +1,247 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation Starter Template</title>
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="foundation/css/foundation.css" />
+    <!--custom css-->
+    <link href="styles/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <!--used foundation to save time with gridwork-->
+
+  <!--I made a mistake with styling and it now works best reactively at 400px wide rather than the 600px I set the reactivity to.
+  With more time I would have gone back and fixed that error-->
+    <div class="grid-container fluid">
+    <!--darkblue header-->
+      <div class="grid-x grid-padding-x topheader">
+        <div class="large-2 medium-2 small-2 large-offset-8 cell">
+            <p class="text-right top">Dealers and Distributors</p>
+        </div>
+        <div class="large-2 medium-2 small-2 cell">
+            <p class = "top">Commerical Service <img class = "aci" src = "images/action-commercial-icon.png"></p>
+        </div>
+      </div>
+    <!---main nav-->
+  <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
+    <div class="title-bar-title"><img class = "logo" src = "images/pool-pros-logo.png"></div>
+    <!--attempted to add a modal for the contact popup but foundation's built in modal was giving me problems.
+    Attemped to locate the css for foundation.reveal but couldn't find a link. Tried other suggestions with no avail.
+    Seems to be a common problem with foundation's js according to my findings with very little guidance for fixing.
+    Attempted to put my own built in modal in but the behavior was very erratic so I let it go to focus on other parts of the test for the sake of time
+
+    the hover color is a small change I wanted to make too-->
+        <button class="hollow button find">
+          <img class = "marker" src = "images/location-icon.png">
+            <span class = "findtext">Find a <span class = "hidden">Pool</span> Pro</span>
+          </button>
+          <!--attempted to move the button away from the icon via css with padding, margin and other spacing techniques
+          but never managed to. In order to move it I wound up using the &nbsp;-->
+      &nbsp; &nbsp;&nbsp;
+      <div data-toggle><img class = "icon" src = "images/menu-icon-mobile.png"></div>
+  </div>
+<!--white nav bar-->
+<div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top fade-out">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"><img class = "logo sublogo" src = "images/pool-pros-logo.png"></li>
+      <li>
+        <!--tried to use tables and other techniques to override the way the dropdown works but eventually
+        let it go to focus on other parts of the test. Would have fixed it with more time, same goes
+        for this dropdown on mobile-->
+        <a href="#">Pools and Spas <img class = "arrow" src = "images/next-arrow.png"><span class = "next">next</span></a>
+        <ul class="menu">
+          <li><a class = "gray" href="#">All Products</a><li>
+          <li><a class = "gray" href="#">Spas</a></li>
+          <li><a class = "gray" href="#">Indoor Pools</a></li>
+          <li><a class = "gray" href="#">Outdoor Pools</a></li>
+          <li><a class = "gray" href="#">Concrete Pools</a></li>
+          <li><a class = "gray" href="#">Fiberglass Pools</a></li>
+          <li><a class = "gray" href="#">Spas</a></li>
+          <li><a class = "gray" href="#">Lighting</a></li>
+          <li><a class = "gray" href="#">Water Features</a></li>
+          <li><a class = "gray" href="#">Custom Features</a></li>
+          <li><a class = "gray" href="#">Tiles and Mosaics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Supplies <img class = "arrow" src = "images/next-arrow.png"> <span class = "next">next</span> </a>
+        <ul class="menu">
+          <li><a class = "gray" href="#">Filters</a></li>
+          <li><a class = "gray" href="#">PH Balance Kits</a></li>
+          <li><a class = "gray" href="#">Automatic Cleaners</a></li>
+          <li><a class = "gray" href = "#">Heaters</a><li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Resources <img class = "arrow" src = "images/next-arrow.png"> <span class = "next">next</span></a>
+        <ul class = "menu">
+          <li><a class = "gray" href="#">Salt vs. Chlorine</a></li>
+          <li><a class = "gray" href="#">Investment Information</a></li>
+          <li><a class = "gray" href="#">Design Gallery</a></li>
+          <li><a class = "gray" href="#">Financing</a></li>
+          <li><a class = "gray" href="#">Warrenties</a></li>
+          <li><a class = "gray" href="#">FAQ</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Services <img class = "arrow" src = "images/next-arrow.png"> <span class = "next">next</span></a>
+        <ul class = "menu">
+          <li><a class = "gray" href="#">Pool Service</a></li>
+          <li><a class = "gray" href="#">Spa Service</a></li>
+          <li><a class = "gray" href="#">Pool Installation</a></li>
+          <li><a class = "gray" href="#">Spa Installation</a></li>
+        </ul>
+      </li>
+      <button class="hollow button find mobilebutton">
+        <img class = "marker" src = "images/location-icon.png">
+          <span class = "findtext">Find a Pool Pro</span>
+      </button>
+    </ul>
+  </div>
+  </div>
+</div>
+    </div>
+  </div>
+<!--hero div-->
+  <div class = "container fluid">
+    <div class="grid-x grid-padding-x hero">
+      <div class="large-12 medium-12 small-12 cell">
+        <div class="title text-center">
+          <h1>Is your pool ready for Summer?</h1>
+          <p>A pool pro is ready to help</p>
+          <hr>
+          <p class = "subtitle" >Choose a pro that's close to your home from the list below</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--main section-->
+  <!--1 2 3-->
+  <!--numbers don't quite style right on mobile at 600px due to an error on my part like I intended,
+  would fix with more time-->
+<div class = "container fluid main">
+  <div class="grid-x grid-padding-x white firstnumber">
+    <div class="large-auto medium-auto small-auto">
+      <img class ="numbers" src = "images/1-circle.png">
+    </div>
+    <div class="large-2 medium-2 small-2">
+      <h1 class = "numbertitle">Choose a pro</h1>
+      <p>Make sure your zip code is correct then choose a pro from the list below</p>
+    </div>
+    <hr class = "gray">
+    <br>
+    <div class="large-auto medium-auto small-auto">
+      <img class ="numbers" src = "images/2-circle.png">
+    </div>
+    <div class="large-2 medium-2 small-2">
+      <h1 class = "numbertitle">Contact a pro</h1>
+        <p>Email a pro to make an appointment for
+          pool & spa services or installation.
+        </p>
+    </div>
+    <hr class = "gray">
+    <br>
+    <div class="large-auto medium-auto small-auto large-shrink">
+      <img class = "numbers" src = "images/3-circle.png">
+    </div>
+    <div class="large-2 medium-2 small-2">
+        <h1 class = "numbertitle">A pro visits</h1>
+        <p>A pro will visit your home and assess your pool & spa needs.</p>
+    </div>
+  </div>
+</div>
+  <!--water image-->
+<div class="container fluid main">
+    <div class = "large-12 medium-12 small-12 cell">
+      <img src = "images/water-image.png">
+  </div>
+</div>
+<!--filter-->
+<!--filter does not work quite yet. With more time would have added an es6 based javascript filter-->
+<div class="container">
+  <div class="grid-x grid-padding-x filterholder">
+    <div class = "large-10 medium-10 small-10 large-offset-1 filter cell">
+    <fieldset class="large-10 columns">
+      <span class = "dealers">| Filter Results </span>
+      <input id="checkbox1" type="checkbox" class = "option-input radio"><label for="checkbox1"> Service</label>
+      <input id="checkbox2" type="checkbox" class = "option-input radio"><label for="checkbox2"> Installation</label>
+      <input id="checkbox3" type="checkbox" class = "option-input radio"><label for="checkbox3">Residential</label>
+      <input id="checkbox3" type="checkbox" class = "option-input radio"><label for="checkbox3">Commerical</label>
+  </fieldset>
+    </div>
+  </div>
+</div>
+  <!--Dealers-->
+<div class="grid-x grid-padding-x white cards">
+    <div id = "dealer" class = "large-3 medium-3 small-3 cell">
+      <!--ran out of time to style the dyanmic contents of the divs but with more time would
+    make them more reactive-->
+    </div>
+</div>
+</div>
+<!--footer-->
+<div class = "container fluid">
+  <div class = "footer">
+    <div class="grid-x grid-padding-x">
+      <div class = "large-6 medium-6 small-6">
+        <img class= "footerlogo" src = "images/pool-pros-logo-footer.png"></div>
+    </div>
+      <div class = "large-12 medium-12 small-12 connect">
+          <span>Connect with us</span>
+            <span><img class = "sm smfirst" src = "images/twitter-icon.png"></span>
+            <span><img class = "smfacebook" src = "images/facebook-icon.png"></span>
+            <span><img class = "sm" src = "images/youtube-icon.png"></span>
+      </div>
+  </div>
+</div>
+<div class = "container fluid">
+  <div class = "copywrite">
+    <div class = "large-12 medium-12 small-12 dealersfooter">
+        <span>Dealers and Distributors |</span><span> Commerical Service</span>
+    </div>
+    <br><br>
+    <div class = "large-12 medium-12 small-12">
+        <span class = "firstspan">2017 Pool Pros | Privacy Policy | Terms and Conditions</span>
+    </div>
+  </div>
+</div>
+
+    <!-- Compressed JavaScript -->
+    <script src="foundation/js/vendor/jquery.js"></script>
+    <script src="foundation/js/vendor/what-input.js"></script>
+    <script src="foundation/js/vendor/foundation.js"></script>
+
+    <script>
+    //initializing foundation
+      $(document).foundation();
+      
+      //getting data from json
+      $.getJSON("https://api.myjson.com/bins/14uau1", function(data) {
+        //creating the dealers variable to be used in appending
+        var dealers = data.dealers.map(dealer => {
+          let currentDealer = dealer.data;
+          let newDiv = document.createElement("div");
+          newDiv.setAttribute("id", currentDealer.companyID);
+          //tried to add the auto class to get it to be more reactive but doesn't seem
+          //to do as much as I wanted. Does do some reacitvity
+          newDiv.setAttribute("class", "large-auto");
+          newDiv.innerHTML = JSON.stringify(currentDealer);
+          console.log(currentDealer);
+          return newDiv;
+        });
+
+        dealers.map(i => {
+          let holder = document.getElementById("dealer");
+          holder.appendChild(i);
+        });
+
+      });
+
+
+    </script>
+  </body>
+</html>

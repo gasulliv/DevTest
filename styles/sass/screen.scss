@@ -1,0 +1,701 @@
+
+@import "compass/reset";
+
+//bourbon to slim down css animations
+
+@import "../bourbon/bourbon";
+
+/*variables*/
+/*limit to only variables use more than once*/
+
+$darkblue: #083D8C;
+$white: #fff;
+$smallfont: 12px;
+$font: 'Lucida Grande';
+$menulightgray: #F6F6F6;
+$aqua: #02C7C6;
+$shadow: #041A3B;
+$border: #2FD1D1;
+$filter: #E5E5E5;
+$option-color: #cbd1d8;
+$checked-option-color: #083D8C;
+$option-size:  30px;
+$explosion-distance: 5;
+$explosion-duration: 0.65s;
+
+/*media queries*/
+
+$mobile-width: 600px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/*mobile and tablet mixins for reactivity*/
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}){
+    @content;
+  }
+}
+
+//mixin keyframes for checkmark animation
+//explosion size is multipled by explosion distance to give a bigger radius on click
+@include keyframes(click-wave) {
+  $offset: ((($option-size * $explosion-distance) - $option-size) / 2);
+
+  0% {
+    @include size($option-size);
+    opacity: 0.35;
+    position: relative;
+  }
+
+  100% {
+    @include size($option-size*$explosion-distance);
+    margin-left: -$offset;
+    margin-top: -$offset;
+    opacity: 0;
+  }
+}
+
+body {
+  font-family: $font;
+  background-color: $white;
+}
+
+/*header*/
+.topheader {
+  background-color: $darkblue;
+  color:$white;
+  padding:.5%;
+  font-size: 12px;
+
+    @include mobile {
+      display:none;
+    }
+
+    .aci {
+      width: 5%;
+    }
+
+  .top {
+    margin-left: 20px;
+
+    @include tablet {
+      margin-left: -20px;
+  }
+
+  }
+}
+
+.menu .menu-text {
+  width: 400px;
+  @include tablet {
+    width:350px;
+    margin-left: -2%;
+  }
+}
+
+.icon {
+  @include mobile {
+    width:70%;
+    @include transition( .8s ease-in-out);
+  }
+}
+
+.icon:hover {
+  @include transform ( scale (1.2) );
+}
+
+.white {
+  background-color:white;
+  color: $darkblue;
+}
+
+.logo {
+  max-width:40%;
+  margin-left:5%;
+
+  @include mobile {
+    max-width: 105%;
+    padding:10px;
+    margin-left: -10px;
+  }
+
+  @include tablet {
+    width:100%;
+  }
+
+}
+
+.dropdown.menu li.opens-right .is-dropdown-submenu{
+
+  border-bottom: solid 4px $border;
+  background-color: $menulightgray;
+
+}
+
+.is-dropdown-submenu-parent:hover {
+  background-color: $menulightgray;
+  border-top: solid 4px $border;
+  margin-top:-8px;
+
+  .arrow {
+        display:none;
+  }
+
+  .next {
+    transform: rotate(-270deg);
+    font-size: 10px;
+    color: #2FD1D1;
+    letter-spacing: 0.05px;
+    line-height: 26px;
+    display:inline-block;
+  }
+
+}
+.arrow {
+  width: 10px;
+  height:10px;
+  transform: rotate(90deg);
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+  border:none;
+  display:inline;
+}
+
+.gray {
+  color: #616161;
+}
+
+.title-bar-title {
+
+  @include mobile {
+
+    width: 300px;
+
+  }
+
+}
+
+.title-bar, .top-bar,  {
+  background-color: $white;
+
+  ul {
+    background-color: $white;
+    border:none;
+  }
+
+  .next {
+    transform: rotate(180deg);
+    font-size: 10px;
+    color: $border;
+    letter-spacing: 0.05px;
+    line-height: 26px;
+    display:none;
+  }
+
+  .menu a .menu .button {
+    padding-bottom: 12px;
+
+  }
+
+  .mobilebutton {
+    @include mobile {
+      display:none;
+    }
+  }
+
+  span {
+    vertical-align: inherit;
+  }
+
+  .find {
+    border-radius: 4px;
+    margin-left: 12%;
+    font-size: 16px;
+    height: 45px;
+
+    @include mobile {
+      margin-left: 0px;
+      font-size: 15px;
+      height:inherit;
+      width:200px;
+    }
+
+    @include tablet {
+      margin-left: 3%;
+    }
+
+  }
+
+
+  .marker {
+    max-width: 13px;
+
+    @include mobile {
+      margin-left: -6px;
+    }
+  }
+
+  .findtext {
+    margin-left: 25px;
+    margin-top: -10px;
+
+    @include mobile {
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-left:5px;
+    }
+
+    .hidden {
+
+      @include mobile {
+        display:none;
+      }
+    }
+  }
+}
+
+
+.sublogo {
+  @include mobile {
+    display:none;
+  }
+}
+
+/*hero div*/
+
+.hero {
+ background-image: url("../../images/hero-image.png");
+ background-position:right;
+ $webkit-background-size: cover;
+ $moz-background-size: cover;
+ $o-background-size: cover;
+ background-size: cover;
+
+
+ @include mobile {
+   padding:10%;
+   background-image: url("../../images/Hero-image-mobile.png");
+  $webkit-background-size: cover;
+  $moz-background-size: cover;
+  $o-background-size: cover;
+  background-size: cover;
+  }
+
+}
+
+.title {
+  padding:5%;
+
+  @include mobile {
+    padding: 10%;
+  }
+
+  h1 {
+    font-size: 48px;
+    color: $white;
+    letter-spacing: 0;
+    line-height: 54px;
+    text-shadow: 0 2px 10px $shadow;
+    padding-bottom:5%;
+
+
+  @include mobile {
+    font-size: 31px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 33px;
+    text-shadow: 0 2px 4px #083D8C;
+    padding-bottom: 15%;
+  }
+
+}
+  p {
+    font-size: 20px;
+    color: $aqua;
+    letter-spacing: 0;
+    line-height: 12px;
+    text-shadow: 0 1px 10px $shadow;
+    padding-bottom: 3%;
+    text-transform: uppercase;
+
+    @include mobile {
+      font-size: 14px;
+      color: $aqua;
+      letter-spacing: 0;
+      line-height: 18px;
+      padding-bottom: 10%;
+    }
+  }
+  hr {
+    color:white;
+    width:150px;
+    border:1px white solid;
+  }
+
+  .subtitle {
+
+    font-size: 16px;
+    color: $white;
+    letter-spacing: 0;
+    line-height: 12px;
+    text-shadow: 0 1px 10px $shadow;
+    text-transform: none;
+    padding:1%;
+
+    @include mobile {
+      font-size: 16px;
+      color: $white;
+      letter-spacing: 0;
+      line-height: 21px;
+    }
+  }
+
+}
+
+/*main section*/
+
+.main {
+
+  padding-top: 5%;
+
+  .numbers {
+    width:100%;
+    @include transition ( .8s ease-in-out );
+
+    @include mobile {
+        width:100%;
+        padding: none;
+        margin-left: 0px;
+      }
+  }
+
+  .firstnumber {
+    margin-left: 10%;
+    @include tablet {
+      margin-left:10px;
+    }
+
+    .mobile {
+
+      @include mobile {
+        display:block;
+        margin-left:0px;
+      }
+    }
+
+    hr {
+      display:none;
+
+      @include mobile {
+        display: block;
+        width: 300px;
+        margin-left: 5px;
+      }
+
+    }
+
+    .large-auto, .medium-auto, .small-auto {
+      max-width:120px;
+      padding-right:20px;
+      margin-left: 30px;
+
+      @include mobile {
+        width:40%;
+        margin-left: -15px;
+      }
+
+      @include tablet {
+        margin-left:20px;
+      }
+    }
+
+    .large-2, .medium-2, .small-2 {
+      max-width:200px;
+      padding-right:160px;
+
+      @include mobile {
+        width:50%;
+        margin-bottom: 30px;
+      }
+    }
+
+    .numbertitle {
+      color: $darkblue;
+      text-transform: uppercase;
+      text-align: left;
+      margin-top: 20px;
+      font-size: 18px;
+      width:200px;
+      padding-right:20%;
+      padding-bottom: 10px;
+      @include transition( .8s ease-in-out);
+
+      @include mobile {
+        width: 160px;
+      }
+    }
+
+    p {
+    font-size: 12px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 19px;
+    width:230px;
+     @include mobile {
+       max-width: 250px;
+     }
+
+     @include tablet {
+        width: 200px;
+     }
+    }
+  }
+}
+//the animations for the numbers
+
+.numbers:hover {
+  @include transform ( rotate(360deg) );
+}
+
+.numbertitle:hover {
+  @include transform ( translate(1em,0) );
+}
+
+.filterholder {
+
+  @include mobile {
+
+    background-color: $filter;
+    width:100%;
+  }
+
+
+  .filter {
+    background-color: $filter;
+    width:70%;
+    border: 2px solid $filter;
+    border-radius: 2px;
+    padding-top:1%;
+    margin-left: 12%;
+
+      @include mobile {
+        max-width: 100%;
+        display:block;
+      }
+
+    .option-input {
+      @include appearance(none);
+      @include position($option-size/3 0 0 0);
+      @include size($option-size);
+      @include transition;
+      background: $option-color;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 0.5rem;
+      outline: none;
+      position: relative;
+      z-index: 1000;
+
+    &:hover {
+      background: darken($option-color, 15%);
+    }
+
+    &:checked {
+      background: $checked-option-color;
+
+      &::before {
+        @include size($option-size);
+        @include position(absolute);
+        content: '\2716';
+        display: inline-block;
+        font-size: $option-size/1.5;
+        text-align: center;
+        line-height: $option-size;
+      }
+
+      &::after {
+        @include animation(click-wave $explosion-duration);
+        background: $checked-option-color;
+        content: '';
+        display: block;
+        position: relative;
+        z-index: 100;
+      }
+    }
+
+    &.radio {
+      border-radius: 50%;
+
+      &::after {
+        border-radius: 50%;
+      }
+    }
+  }
+
+    label {
+      font-size: 12px;
+      color: #333333;
+      letter-spacing: 0.17px;
+      line-height: 24px;
+      padding-bottom: 10px;
+    }
+
+    .cards {
+
+      margin-left: 16%;
+      margin-top: 10%;
+
+      @include mobile {
+
+        width: 100%;
+      }
+
+      @include tablet {
+        margin-left: 8%;
+      }
+
+      fieldset {
+        @include mobile {
+          width: 100%;
+        }
+
+      }
+
+    }
+
+  }
+    .dealers {
+
+      color: black;
+      font-weight: bold;
+      margin-left: 15%;
+
+    }
+
+}
+
+div#dealer div {
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 10px;
+  width:100%;
+
+}
+
+/*footer*/
+
+.footer {
+  background-color:$darkblue;
+  padding:2%;
+
+  @include mobile {
+    padding: 4%;
+  }
+
+  .footerlogo {
+    max-width: 30%;
+    margin-left:80%;
+    padding-bottom: 2%;
+
+    @include mobile {
+      max-width: 100%;
+      margin-left:40%;
+      padding-top:20%;
+      padding-bottom: 7%;
+    }
+
+  }
+
+  .connect {
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 36%;
+
+    @include mobile {
+      margin-left:2px;
+      font-weight: lighter;
+      font-size: 14px;
+      padding-bottom: 5%;
+    }
+
+        .smfirst {
+
+          @include mobile {
+            margin-left: 29%;
+          }
+
+        }
+
+        .sm {
+            max-width: 3%;
+
+            @include mobile {
+              max-width: 6%;
+            }
+          }
+        .smfacebook {
+          max-width: 2%;
+
+          @include mobile {
+            max-width: 3%;
+          }
+        }
+
+  }
+
+  span + span {
+    margin-left: 20px;
+  }
+
+}
+
+.copywrite {
+  background-color: #216DDF;
+  font-size:16px;
+  color:white;
+  padding:1%;
+
+  @include mobile {
+    padding:2%;
+  }
+
+  .firstspan {
+
+    margin-left: 33%;
+
+    @include mobile {
+
+      margin-left: 10%;
+      font-size: 13px;
+    }
+
+    @include tablet {
+      margin-left: 30%;
+    }
+
+  }
+
+  .dealersfooter {
+
+    display:none;
+
+    @include mobile {
+      display:inline;
+      margin-left: 15%;
+      font-size: 13px;
+      padding-bottom: 20px;
+    }
+  }
+}
